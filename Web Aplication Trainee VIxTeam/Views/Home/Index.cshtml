@@ -8,8 +8,19 @@
         <div class="h-100 p-5 bg-light border rounded-3">
           <h2>Aplicação Web</h2>
           <p>Aprenda a criar, modificar e aprimorar uma Aplicação Web</p>
-          <button class="btn btn-outline-secondary" type="button" style="background-color:green"><font color="#FFFFFF">Comceçar</font></button>
+          <button class="btn btn-outline-secondary" type="button" style="background-color:green" onclick="alertaJumbotron()"><font color="#FFFFFF">Comceçar</font></button>
+          <button class="btn btn-outline-secondary" type="button" style="background-color:green" onclick="jumbotronPrivacy()"><font color="#FFFFFF">Ir para Privacy</font></button>
         </div>
       </div>
-    <p style="margin-bottom:300px">Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p style="margin-bottom:300px">Learn about <a href="https://docs.microsoft.com/aspnet/core" target="_blank">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<script>
+    function alertaJumbotron(){
+        window.alert("Você clicou no botão do jumbotron");
+    }
+    
+    function jumbotronPrivacy(){
+        window.location.href = "\Home/Privacy";
+    }
+</script>
