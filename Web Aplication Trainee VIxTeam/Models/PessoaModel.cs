@@ -16,5 +16,7 @@ namespace Web_Aplication_Trainee_VIxTeam.Models
         public int QtdFilhos { get; set; }
         [Display(Name = "Salário")]
         public decimal Salario { get; set; }
+        [Display(Name = "Situação")]
+        public bool Situacao { get; set; }
     }
 }

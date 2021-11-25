@@ -56,7 +56,7 @@ namespace Web_Aplication_Trainee_VIxTeam.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CodigoPessoa,NomePessoa,Email,DataNascimento,QtdFilhos,Salario")] PessoaModel pessoaModel)
         {
-
+            pessoaModel.Situacao = true;
             _context.Add(pessoaModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -143,7 +143,38 @@ namespace Web_Aplication_Trainee_VIxTeam.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        
+        [HttpGet]
+        public async Task<IActionResult> MudaSituacao(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var pessoaModel = await _context.PessoaModel.FindAsync(id);
+
+            if (pessoaModel == null)
+            {
+                return NotFound();
+            }
+            if (pessoaModel.Situacao == true)
+            {
+                pessoaModel.Situacao = false;
+            }
+            else if (pessoaModel.Situacao == false)
+            {
+                pessoaModel.Situacao = true;
+            }
+            return await ConfirmaSituacao(pessoaModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ConfirmaSituacao(PessoaModel pessoaModel)
+        {
+            _context.Update(pessoaModel);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
         private bool PessoaModelExists(int id)
         {
             return _context.PessoaModel.Any(e => e.CodigoPessoa == id);

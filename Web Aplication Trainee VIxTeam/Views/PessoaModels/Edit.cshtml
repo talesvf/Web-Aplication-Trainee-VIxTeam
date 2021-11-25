@@ -39,6 +39,18 @@
                 <span asp-validation-for="Salario" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Situacao" class="control-label"></label>
+                <div>
+                    <input type="radio" asp-for="Situacao" value="true"/>
+                    <label for="ativo">Ativo</label>
+                </div>
+                <div>
+                    <input type="radio" asp-for="Situacao" value="false"/>
+                    <label for="ativo">Inativo</label>
+                </div>
+                <span asp-validation-for="Situacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

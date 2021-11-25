@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Index";
 }
-@Html.ValidationSummary()
+
 
 <h1>Index</h1>
 <p>
@@ -27,6 +27,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Salario)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Situacao)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -49,9 +52,20 @@
                 @Html.DisplayFor(modelItem => item.Salario)
             </td>
             <td>
+                    @{
+                        if (item.Situacao == true){
+                            @:Ativo
+                        }
+                        else{
+                            @:Inativo  
+                        }
+                    }
+            </td>
+            <td>
                 <a asp-action="Edit" asp-route-id="@item.CodigoPessoa">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.CodigoPessoa">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CodigoPessoa">Delete</a> 
+                <a asp-action="Delete" asp-route-id="@item.CodigoPessoa">Delete</a> |
+                <a asp-action="MudaSituacao" asp-route-id="@item.CodigoPessoa">Alterar status</a>
             </td>
         </tr>
 }
