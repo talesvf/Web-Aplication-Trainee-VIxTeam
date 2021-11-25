@@ -1,10 +1,34 @@
 ﻿@{
     ViewData["Title"] = "Empresa";
+
 }
+@model EmpresaModel;
 
 <div class="text-center">
     <h1 class="display-4">Empresa</h1>
-    <p style="margin-bottom:300px">Learn about <a href="https://docs.microsoft.com/aspnet/core" target="_blank">building Web apps with ASP.NET Core</a>.</p>
+    <div class="col-md-7" style="margin:auto">
+        <div class="h-100 p-5 bg-light border rounded-3">
+            <h2>Cadastro</h2>
+            <form asp-action="Create">
+                <div class="form-group">
+                    <label for="companyName" style="margin-right:510px">Nome da Empresa</label>
+                    <input type="text" class="form-control" id="companyName" placeholder="Insira o Nome aqui" style="margin-top:5px" asp-for="NomeEmpresa">
+                    <small id="nomeHelp" class="form-text text-muted" style="margin-right:250px">Este deve ser o nome que consta no banco de dados do governo.</small>
+                </div>
+                <div class="form-group">
+                    <label for="companyFName" style="margin-right:450px">Nome Fantasia da Empresa</label>
+                    <input type="text" class="form-control" id="companyFName" placeholder="Insira o Nome Fantasia aqui" style="margin-top:5px" asp-for="NomeFantasiaEmpresa">
+                    <small id="nomeFHelp" class="form-text text-muted" style="margin-right:350px">Este deve ser o nome divulgado para o mercado.</small>
+                </div>
+                <div class="form-group">
+                    <label for="CNPJ" style="margin-right:600px">CNPJ</label>
+                    <input type="text" class="form-control" id="CNPJ" placeholder="Insira o CNPJ aqui" style="margin-top:5px" asp-for="CNPJ">
+                </div>
+                <button type="submit" class="btn btn-primary" style="margin-top:20px" value="Create">Submit</button>
+            </form>
+        </div>
+    </div>
+    <p style="margin-bottom:100px">Learn about <a href="https://docs.microsoft.com/aspnet/core" target="_blank">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
 
