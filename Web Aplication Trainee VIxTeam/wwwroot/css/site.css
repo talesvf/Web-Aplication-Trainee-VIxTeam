@@ -16,3 +16,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+a {
+    color: #0002ff;
+    text-decoration: none;
+}
